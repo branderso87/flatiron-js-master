@@ -17,9 +17,12 @@ class Comment {
   //   + before return - adds current comment to image's comments property
   findImage (imageId) {
     const foundImage = Image.all[imageId]
-    let aComment =  {id: this.id, content: this.commentContent}
-    foundImage.comments.push(aComment)
-    console.log(foundImage.comments)
+
+    foundImage.comments.push({
+      id: this.id,
+      content: this.commentContent
+    })
+
     return foundImage
   }
   // + `Comment.prototype.commentEl()`
