@@ -26,7 +26,6 @@ class CommentsController {
         let imageId = parseInt($(this).data('id'))
         let comment = $(`#comment-description-${imageId}`).val()
         let newComment = new Comment (comment, imageId)
-
         self.render(newComment)
 
         $(`#comment-description-${imageId}`).val('')
@@ -36,7 +35,7 @@ class CommentsController {
   // + `CommentsController.prototype.render(commentObject)`
   //   + selects the appropriate `ul` for this comment to be added to
   //   + appends the new comment element to this `ul`
-  render (theComment) {
-    $(`#comments-${theComment.image.id}`).append(theComment.commentEl())
+  render (newComment) {
+    $(`#comments-${newComment.image.id}`).append(newComment.commentEl())
   }
 }

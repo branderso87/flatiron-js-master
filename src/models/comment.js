@@ -1,6 +1,6 @@
 // create Comment class here
 // Build the following on the comment class model (Use ES6 syntax)
-'use strict'
+
 
 class Comment {
   //`new Comment(comment, imageId)`
@@ -8,8 +8,8 @@ class Comment {
   //should save new comment to Comment.all property
   constructor (comment, imageId) {
     this.id = this.constructor.all.length;
-    this.image = this.findImage(imageId)
     this.commentContent = comment
+    this.image = this.findImage(imageId)
     this.constructor.all.push(this)
   }
   // + `Comment.prototype.findImage(imageId)`
@@ -17,12 +17,7 @@ class Comment {
   //   + before return - adds current comment to image's comments property
   findImage (imageId) {
     const foundImage = Image.all[imageId]
-
-    foundImage.comments.push({
-      id: this.id,
-      content: this.commentContent
-    })
-
+    foundImage.comments.push({ id: this.id, content: this.commentContent})
     return foundImage
   }
   // + `Comment.prototype.commentEl()`
@@ -39,3 +34,4 @@ class Comment {
 //   + should return all of the comment objects in an array
 //   + a property of the Comment class
 Comment.all = []
+console.log('comments array',Comment.all)
